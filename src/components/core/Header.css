@@ -1,3 +1,26 @@
-h1 {
-  color: chocolate;
+header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+}
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  border-color: var(--accent);
+}
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-left: auto;
 }
