@@ -1,9 +1,10 @@
 import "./App.css";
+import Header from "./components/core/Header";
 
 function App() {
   return (
     <>
-      <h1>Team Identity</h1>
+      <Header />
     </>
   );
 }
