@@ -1,3 +1,5 @@
+import "./SymbolLibrary.css";
+
 export default function SymbolLibrary() {
   const { data, loading, error } = {
     data: { categories: "hello" },
