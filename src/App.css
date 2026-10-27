@@ -7,35 +7,17 @@
 }
 
 .app > header {
-  /* your Header's root element */
-  flex: none; /* keeps its natural height */
+  flex: none;
 }
 
 .workspace {
   flex: 1;
   display: flex;
-  min-height: 0; /* required: lets children shrink and scroll */
-}
-
-/* ---------- Left: symbol library ---------- */
-.library {
-  width: 320px;
-  flex: none;
-  overflow-y: auto; /* the sidebar scrolls */
-  height: 100%;
-  padding: 0 1rem 1rem;
-  border-right: 1px solid #ddd;
-  background: #fafafa;
-}
-
-.library-title {
-  margin: 0;
-  padding: 1rem 0 0.5rem;
-  font-size: 1.1rem;
+  min-height: 0;
 }
 
 .category h2 {
-  position: sticky; /* category name stays visible while scrolling */
+  position: sticky;
   top: 0;
   margin: 1rem 0 0.75rem;
   padding: 0.25rem 0;
@@ -124,10 +106,4 @@ figcaption {
 
 .placed svg {
   display: block; /* fills the div exactly, with no inline gap */
-}
-
-.workspace {
-  flex: 1;
-  display: flex;
-  min-height: 0; /* required: lets children shrink and scroll */
 }

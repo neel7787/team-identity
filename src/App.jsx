@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/core/Header";
 import SymbolLibrary from "./components/content/SymbolLibrary";
+import Stage from "./components/content/Stage";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Header />
       <div className="workspace">
         <SymbolLibrary />
-        <div className="workspace"></div>
+        <Stage />
       </div>
     </div>
   );
