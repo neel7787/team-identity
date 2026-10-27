@@ -1,0 +1,127 @@
+/* ---------- Page layout ---------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: system-ui, sans-serif;
+}
+
+.app > header {
+  /* your Header's root element */
+  flex: none; /* keeps its natural height */
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+  min-height: 0; /* required: lets children shrink and scroll */
+}
+
+/* ---------- Left: symbol library ---------- */
+.library {
+  width: 320px;
+  flex: none;
+  overflow-y: auto; /* the sidebar scrolls */
+  height: 100%;
+  padding: 0 1rem 1rem;
+  border-right: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.library-title {
+  margin: 0;
+  padding: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.category h2 {
+  position: sticky; /* category name stays visible while scrolling */
+  top: 0;
+  margin: 1rem 0 0.75rem;
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(80px, 1fr)
+  ); /* 3 per row in 320px */
+  gap: 0.5rem;
+}
+
+.card {
+  margin: 0;
+  padding: 0.75rem 0.25rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: #222;
+  cursor: grab; /* hints that it can be dragged */
+}
+
+.card:hover {
+  border-color: #888;
+  color: #0a6cff;
+}
+
+figcaption {
+  font-size: 0.7rem;
+  color: #555;
+  text-align: center;
+  word-break: break-word;
+}
+
+.credit,
+.status {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* ---------- Right: stage ---------- */
+.stage {
+  position: relative; /* so .placed items position relative to the stage */
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  background: #fff;
+  color: #222; /* placed icons use currentColor */
+  transition: background 0.15s;
+}
+
+.stage--over {
+  background: #eef5ff; /* visual feedback while dragging over */
+  outline: 2px dashed #0a6cff;
+  outline-offset: -8px;
+}
+
+.stage-hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  pointer-events: none; /* hint never blocks drops */
+}
+
+.placed {
+  position: absolute;
+  left: 0;
+  top: 0; /* position now comes from transform: translate() */
+  transform-origin: 50% 50%; /* rotate around the centre */
+  line-height: 0;
+  cursor: move;
+  touch-action: none; /* stops touch scrolling from fighting the drag */
+}
+
+.placed svg {
+  display: block; /* fills the div exactly, with no inline gap */
+}
