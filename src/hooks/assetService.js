@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export function useSymbols (url = '/symbols.json') {
+export function useSymbols (url = 'http://localhost:3000/symbols') {
   const [data, setData] = useState (null);
   const [loading, setLoading] = useState (true);
   const [error, setError] = useState (null);
