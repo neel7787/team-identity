@@ -125,3 +125,9 @@ figcaption {
 .placed svg {
   display: block; /* fills the div exactly, with no inline gap */
 }
+
+.workspace {
+  flex: 1;
+  display: flex;
+  min-height: 0; /* required: lets children shrink and scroll */
+}

@@ -1,0 +1,21 @@
+.library {
+  width: 320px;
+  flex: none;
+  overflow-y: auto; /* the sidebar scrolls */
+  height: 100%;
+  padding: 0 1rem 1rem;
+  border-right: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.library-title {
+  margin: 0;
+  padding: 1rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.credit,
+.status {
+  font-size: 0.75rem;
+  color: #666;
+}

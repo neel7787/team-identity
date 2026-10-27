@@ -6,8 +6,10 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <SymbolLibrary />
-      <div className="workspace"></div>
+      <div className="workspace">
+        <SymbolLibrary />
+        <div className="workspace"></div>
+      </div>
     </div>
   );
 }
