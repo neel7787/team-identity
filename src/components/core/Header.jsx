@@ -1,26 +1,13 @@
+import { Fragment } from "react";
 import "./Header.css";
 
 export default function Header() {
   return (
-    <>
+    <Fragment>
       <header>
-        <button data-add="pump" className="btn btn-primary">
-          + Pump
-        </button>
-        <button data-add="star" className="btn btn-primary">
-          + Star
-        </button>
-        <button data-add="leaf" className="btn btn-primary">
-          + Leaf
-        </button>
-        <button id="del" className="btn btn-primary">
-          Delete
-        </button>
-        <span class="hint">
-          Drag to move · edges/corners to scale · top dot to rotate · Shift =
-          keep ratio / snap 15°
-        </span>
+        <img src="team-identity-maker-icon.svg" width="50" alt="" />
+        <h3>Team Identity Designer</h3>
       </header>
-    </>
+    </Fragment>
   );
 }

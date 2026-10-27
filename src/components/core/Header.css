@@ -1,26 +1,19 @@
 header {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 10px 14px;
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
+  display: block;
+  padding: 5px 10px;
+  background-color: #303030;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
 }
-button {
-  font: inherit;
-  padding: 6px 12px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--text);
-  border-radius: 6px;
-  cursor: pointer;
+
+h3 {
+  /* text-align: center; */
+  color: #ffffff;
+  font-size: 18px;
+  margin-left: 70px;
 }
-button:hover {
-  border-color: var(--accent);
-}
-.hint {
-  color: var(--muted);
-  font-size: 12px;
-  margin-left: auto;
+
+img {
+  position: absolute;
+  left: 20px;
+  top: 10px;
 }
