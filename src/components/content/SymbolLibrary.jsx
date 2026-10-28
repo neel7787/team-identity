@@ -12,17 +12,16 @@ export default function SymbolLibrary() {
       {loading && <p className="status">Loading Symbols</p>}
       {error && <p className="status">Failed to load: {error.message}</p>}
       {data?.categories?.map((category) => (
-        <section key={category.name}>
-          <h3>{category.name}</h3>
-          <ul>
+        <section key={category.name} className="category">
+          <h2>{category.name}</h2>
+          <div className="grid">
             {category.symbols.map((symbol) => (
-              // <li key={symbol.name}>{symbol.name}</li>
               <figure key={symbol.name} className="card" draggable>
                 <SymbolReader symbol={symbol} />
                 <figcaption>{symbol.name}</figcaption>
               </figure>
             ))}
-          </ul>
+          </div>
         </section>
       ))}
     </aside>
