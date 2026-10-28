@@ -1,5 +1,6 @@
 import { useSymbols } from "../../hooks/assetService";
 import "./SymbolLibrary.css";
+import SymbolReader from "./SymbolReader";
 
 export default function SymbolLibrary() {
   const { data, loading, error } = useSymbols();
@@ -15,7 +16,11 @@ export default function SymbolLibrary() {
           <h3>{category.name}</h3>
           <ul>
             {category.symbols.map((symbol) => (
-              <li key={symbol.name}>{symbol.name}</li>
+              // <li key={symbol.name}>{symbol.name}</li>
+              <figure key={symbol.name} className="card" draggable>
+                <SymbolReader symbol={symbol} />
+                <figcaption>{symbol.name}</figcaption>
+              </figure>
             ))}
           </ul>
         </section>
