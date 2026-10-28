@@ -5,6 +5,11 @@ import SymbolReader from "./SymbolReader";
 export default function SymbolLibrary() {
   const { data, loading, error } = useSymbols();
 
+  function handleDragStart(e, symbol) {
+    e.dataTransfer.setData("application/x-symbol", JSON.stringify(symbol));
+    e.dataTransfer.effectAllowed = "copy";
+  }
+
   return (
     <aside className="library">
       <h2 className="library-title">Symbols</h2>
@@ -16,7 +21,12 @@ export default function SymbolLibrary() {
           <h2>{category.name}</h2>
           <div className="grid">
             {category.symbols.map((symbol) => (
-              <figure key={symbol.name} className="card" draggable>
+              <figure
+                key={symbol.name}
+                className="card"
+                draggable
+                onDragStart={(e) => handleDragStart(e, symbol)}
+              >
                 <SymbolReader symbol={symbol} />
                 <figcaption>{symbol.name}</figcaption>
               </figure>
@@ -24,6 +34,8 @@ export default function SymbolLibrary() {
           </div>
         </section>
       ))}
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
     </aside>
   );
 }
