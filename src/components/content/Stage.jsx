@@ -9,9 +9,10 @@ export default function Stage({
   selectedId = null,
   onDropSymbol,
   onSelect,
+  onUpdate,
 }) {
   const [isOver, setIsOver] = useState(false);
-  const [setTarget] = useState(null);
+  const [target, setTarget] = useState(null);
   const moveableRef = useRef(null);
 
   const selected = items.find((item) => item.id === selectedId) ?? null;
@@ -21,7 +22,6 @@ export default function Stage({
   }, [selected]);
 
   function handleDragOver(e) {
-    console.log("handleDragOver");
     if (!e.dataTransfer.types.includes("application/x-symbol")) return;
     e.preventDefault();
     e.dataTransfer.dropEffect = "copy";
@@ -29,12 +29,10 @@ export default function Stage({
   }
 
   function handleDragLeave(e) {
-    console.log("handleDragLeave");
     if (!e.currentTarget.contains(e.relatedTarget)) setIsOver(false);
   }
 
   function handleDrop(e) {
-    console.log("handleDrop");
     e.preventDefault();
     setIsOver(false);
 
@@ -58,7 +56,6 @@ export default function Stage({
   }
 
   function handleStagePointerDown(e) {
-    console.log("handleStagePointerDown");
     if (e.target === e.currentTarget) onSelect(null);
   }
 
@@ -66,13 +63,13 @@ export default function Stage({
     <>
       <main
         id="stage"
-        className={`stage ${isOver ? "stage-over" : ""}`}
+        className={`stage ${isOver ? "stage--over" : ""}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onPointerDown={handleStagePointerDown}
       >
-        {items.map((item) => {
+        {items.map((item) => (
           <div
             key={item.id}
             ref={item.id === selectedId ? setTarget : undefined}
@@ -81,20 +78,20 @@ export default function Stage({
             style={{
               width: item.width,
               height: item.height,
-              transform: `translate(${item.x}px, ${item.y}px) rotate(${item.rotation}deg)]`,
+              transform: `translate(${item.x}px, ${item.y}px) rotate(${item.rotation}deg)`,
             }}
           >
             <svg
-              xmlns="http://www.w3.org/2000.svg"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox={item.symbol.viewBox}
               width="100%"
               height="100%"
               aria-label={item.symbol.name}
               role="img"
               dangerouslySetInnerHTML={{ __html: item.symbol.body }}
-            ></svg>
-          </div>;
-        })}
+            />
+          </div>
+        ))}
         <div id="info">Nothing selected</div>
       </main>
     </>
