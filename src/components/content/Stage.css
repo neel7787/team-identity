@@ -16,3 +16,43 @@
   background-size: 20px 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  background: #fff;
+  color: #222;
+  transition: background 0.15s;
+}
+
+.stage--over {
+  background: #eef5ff;
+  outline: 2px dashed #0a6cff;
+  outline-offset: -8px;
+}
+
+.stage-hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  pointer-events: none;
+}
+
+.placed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 50%;
+  line-height: 0;
+  cursor: move;
+  touch-action: none;
+}
+
+.placed svg {
+  display: block;
+}
