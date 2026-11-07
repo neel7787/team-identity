@@ -4,7 +4,7 @@ import SymbolLibrary from "./components/content/SymbolLibrary";
 import Stage from "./components/content/Stage";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [placed, setPlaced] = useState([]);
   const [selectedId, setSelectedId] = useState([]);
 
@@ -15,9 +15,9 @@ function App() {
 
   function handleUpdate(id, patch) {
     setPlaced((prev) => {
-      return prev.map((item) => {
-        item.id === id ? { ...item, ...patch } : item;
-      });
+      return prev.map((item) =>
+        item.id === id ? { ...item, ...patch } : item,
+      );
     });
   }
 
@@ -27,7 +27,7 @@ function App() {
       <div className="workspace">
         <SymbolLibrary />
         <Stage
-          item={placed}
+          items={placed}
           selectedId={selectedId}
           onDropSymbol={handleDropSymbol}
           onSelect={setSelectedId}
@@ -37,5 +37,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
